@@ -10,18 +10,15 @@ class Player
     "#{name}: #{lives}/#{MAX_LIVES}"
   end
 
-  def player_got_attacked?
+  def is_attacked(validation)
+    if !validation
+      self.lives -= 1
+    end
   end
 
-  protected 
-  def attacked
-    self.lives -= 1
+  def this_beat_other?(player)
+    player.lives == 0
   end
 
+  
 end
-
-
-p1 = Player.new('p1')
-puts p1
-p1.attacked
-puts p1
